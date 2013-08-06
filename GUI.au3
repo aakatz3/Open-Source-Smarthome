@@ -22,6 +22,7 @@ $Icon1 = GUICtrlCreateIcon("C:\Windows\System32\imageres.dll", -77, 16, 144, 48,
 GUISetState(@SW_SHOW)
 #EndRegion ### END Koda GUI section ###
 
+$notify = 1
 Run("C:\GNUWIN32\bin\wget.exe http://www.google.com/")
 
 While 1
@@ -31,7 +32,9 @@ While 1
 			Exit
 
 		Case $Button5
+		   $notify = 1
 		Case $Button6
+		   $notify = 0
 		Case $Button1
 		Case $Button2
 		Case $Button4
