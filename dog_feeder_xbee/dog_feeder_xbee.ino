@@ -10,9 +10,9 @@ void setup()
  pinMode(pwmp, OUTPUT);
  pinMode(brakep, OUTPUT);
  digitalWrite(dirp, HIGH);
- analogWrite(pwmp, 255);
+ analogWrite(pwmp, 255/1.5);
  digitalWrite(brakep, HIGH);
- Serial.begin( 19200 );
+ Serial.begin( 9600 );
 }
 
 void loop()
@@ -20,9 +20,9 @@ void loop()
  if(Serial.available() && Serial.read()==myIDFeed)
  {
    digitalWrite(brakep, LOW);
-   delay(500);
+   delay(1000);
    while(!digitalRead(magneticPin));
-   delay(500);
+   delay(0);
    digitalWrite(brakep, HIGH);
  }
 }

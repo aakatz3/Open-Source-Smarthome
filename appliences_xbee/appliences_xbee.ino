@@ -1,7 +1,7 @@
 const char MyIDs [3] = {'B','C','D'};
 const int triggerPins [3] = {13, 12, 11};
 int input;
-boolean powerSwitchState = false;
+boolean states[3] = {false,false,false};
 
 void setup()
 {
@@ -9,24 +9,15 @@ void setup()
 {
  pinMode(triggerPins [i], OUTPUT);
 } 
- Serial.begin(19200);
+ Serial.begin(9600);
 }
 
 void loop()
 {
   if(Serial.available() && id_matches(Serial.read()))
   {
-    if(input == 0)
-    {
-      powerSwitchState = !powerSwitchState;
-      digitalWrite(triggerPins[input], powerSwitchState);
-    }
-    else
-    {
-     digitalWrite(triggerPins[input], HIGH);
-     delay(500);
-     digitalWrite(triggerPins[input], LOW);
-    }
+      states[input] = !states[input];
+      digitalWrite(triggerPins[input], states[input]);
   }
 }
 
