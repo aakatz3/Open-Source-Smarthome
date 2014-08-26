@@ -1,1 +1,1 @@
-An open smart home. Have any questions? email at aakatz3@gmail.com
+An open smart home. Have any questions? email at aakmakes@gmail.com
